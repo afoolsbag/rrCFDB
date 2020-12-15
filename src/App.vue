@@ -17,7 +17,7 @@
           </a-menu>
         </nav>
       </a-layout-header>
-      <a-layout-content clsss="content">
+      <a-layout-content class="content">
         <router-view/>
       </a-layout-content>
       <a-layout-footer class="footer">
@@ -59,7 +59,7 @@ export default {
   }
 }
 
-.content, .ant-layout-content{
+.content {
   // 内边距区域
   // https://developer.mozilla.org/docs/Web/CSS/padding
   padding: 0 50px;
