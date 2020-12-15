@@ -2,16 +2,16 @@
   <a-config-provider :locale="locale">
     <a-layout>
       <a-layout-header class="header">
-        <img class="header__logo" alt="rrCFDB logo" src="@/assets/logo-250x65.png"
-             title="zhengrr's Crossfire Database"/>
+        <a href="/">
+          <img class="header__logo" alt="rrCFDB logo" src="@/assets/logo-250x65.png"
+               title="zhengrr's Crossfire Database"/>
+        </a>
         <nav class="nav">
-          <a-menu class="nav__menu" mode="horizontal" theme="dark"
-                  v-model:selectedKeys="selectedKeys1"
-          >
+          <a-menu class="nav__menu" mode="horizontal" theme="dark">
             <a-menu-item class="nav__menu-item" key="home">
               <router-link to="/">Home</router-link>
             </a-menu-item>
-            <a-menu-item clsss="nav__menu-item" key="about">
+            <a-menu-item class="nav__menu-item" key="about">
               <router-link to="/about">About</router-link>
             </a-menu-item>
           </a-menu>
@@ -40,6 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
+/* 全局 */
 #app {
   // 字体
   // https://developer.mozilla.org/docs/Web/CSS/font-family
@@ -51,31 +52,56 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+$headerHeight: 64px;
+$headerImageHeight: 48px;
+
+/* 页眉 */
 .header {
   &__logo {
     // 浮动
     // https://developer.mozilla.org/docs/Web/CSS/float
     float: left;
+
+    // 外边距区域
+    // https://developer.mozilla.org/docs/Web/CSS/margin
+    margin: ($headerHeight - $headerImageHeight) / 2 28px ($headerHeight - $headerImageHeight) / 2 0;
+
+    // 高度
+    // https://developer.mozilla.org/docs/Web/CSS/height
+    height: $headerImageHeight;
   }
 }
 
+/* 内容 */
 .content {
   // 内边距区域
   // https://developer.mozilla.org/docs/Web/CSS/padding
   padding: 0 50px;
 }
 
+/* 页脚 */
 .footer {
   // 文字对齐
   // https://developer.mozilla.org/docs/Web/CSS/text-align
   text-align: center;
 }
 
+/* 导航 */
 .nav {
+  // 行高
+  // https://developer.mozilla.org/docs/Web/CSS/line-height
+  line-height: $headerHeight;
+
   &__menu {
     // 行高
     // https://developer.mozilla.org/docs/Web/CSS/line-height
-    line-height: 64px;
+    line-height: $headerHeight;
+  }
+
+  &__menu-item {
+    // 行高
+    // https://developer.mozilla.org/docs/Web/CSS/line-height
+    line-height: $headerHeight;
   }
 }
 </style>
